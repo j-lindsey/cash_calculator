@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cashier Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/cashier.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body onload="displayDate();">
+    <div class="container wrapper">
+        <div class="unit container">
+            <form>
+                <div class="header">
+                    <h2 class="animate__animated animate__fadeInLeft">Admin</h2>
+                </div>
+                <div class="mx-2">
+                    <div class="form-group">
+                        <label for="product">Add a new product</label><br />
+                        <div style="text-align: right;">
+                            <input type="text" id="product" placeholder="product name" required>
+                            <button type="submit" class="btn" onclick="addProduct();">Add Product</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pperunit">Select a product then add the price per unit</label>
+                        <div>
+                            <select id="pperunit" name="pperunit">
+                                <!--<option name="apples">apples</option>
+                                <option name="bananas">bananas</option>
+                                <option name="tomatoes">tomatoes</option>-->
+                            </select>
+                            <input class="ml-1" type="text" id="price" name="price" placeholder="price">
+                            <button type="submit" class="btn ml-1" style="width: 30%;"
+                                onclick="addPrice();">Add
+                                Price</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="unit container">
+            <form>
+                <div class="header">
+                    <h2 class="animate__animated animate__fadeInRight">Checkout</h2>
+                </div>
+                <div class="mx-2">
+                    <div class="form-group mt-3" style="text-align: center;">
+                        <button type="button" class="btn" style="width: 50%;" onclick="newTransaction();">New
+                            Transaction</button>
+                        <br />
+                    </div>
+                    <div class="form-group">
+                        <label for="numofunits">Select a product then type the number of units</label><br>
+                        <div class="row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4">
+                                <input
+                                    style="width: 100%; height: 40px; border-radius:10px; background-color: white; text-align:center;"
+                                    type="text" id="amountDue" placeholder="Amount Entered" disabled="disabled">
+                            </div>
+                            <div class="col-md-4">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <select id="selectproduct">
+                                    <!--<option name="Apple">Apple ($/unit)</option>
+                                        <option name="Banana">Banana ($/unit)</option>
+                                        <option name="Tomato">Tomato ($/unit)</option>-->
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4">
+                                        <button type="button" class="btn" value="1"
+                                            onclick="addUnit1();">1</button>
+                                        <button type="button" class="btn" value="4"
+                                            onclick="addUnit4();">4</button>
+                                        <button type="button" class="btn" value="7"
+                                            onclick="addUnit7();">7</button>
+                                        <button type="button" class="btn"
+                                            onclick="backspace();">&#8656;</button>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <button type="button" class="btn" value="2"
+                                            onclick="addUnit2();">2</button>
+                                        <button type="button" class="btn" value="5"
+                                            onclick="addUnit5();">5</button>
+                                        <button type="button" class="btn" value="8"
+                                            onclick="addUnit8();">8</button>
+                                        <button type="button" class="btn" value="0"
+                                            onclick="addUnit0();">0</button>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <button type="button" class="btn" value="3"
+                                            onclick="addUnit3();">3</button>
+                                        <button type="button" class="btn" value="6"
+                                            onclick="addUnit6();">6</button>
+                                        <button type="button" class="btn" value="9"
+                                            onclick="addUnit9();">9</button>
+                                        <button type="button" class="btn" onclick="clearQuant();">C</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 text-*-right">
+                                <div>
+                                    <button type="button" class="btn" onclick="addToCart();">Add to
+                                        Cart</button>
+                                </div>
+                                <div style="position: absolute; bottom:0;">
+                                    <button type="button" class="btn" onclick="calcAmountDue();">Amount
+                                        due</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="unit container">
+            <form>
+                <div class="header">
+                    <h2 class="animate__animated animate__fadeInLeft">Receipt</h2>
+                </div>
+                <div class="mt-3 mx-3">
+                    <table class="table table-bordered" id="thisTable">
+                        <tr>
+                            <td colspan="4" id="dateInput">Date:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" id="timeInput">Time:
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Product</th>
+                            <th>$/unit</th>
+                            <th>Unit(s)</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" id="totalprice">Total Price:</td>
+                        <tr>
+                            <td colspan="4" id="totalTax"> Taxes:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" id="totalAmt">
+                                Amount Due:
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+/* #03045E
+#0077B6
+#00b4d8
+#90e0ef 
+#caf0f8
+*/
+body{
+    margin: 0;
+    background-color: #4B0082;
+    
+}
+.wrapper{
+    margin-top: 3%;
+    max-width: 800px;
+}
+.header{
+    margin: 1% 15%;
+    border-radius: 10%/20%;
+    background-color: #03045E;
+    text-align: center;
+    color: #CAF0F8;
+    padding: 3px;
+}
+.unit{
+    border-radius: 10%/50%;
+    background-color:#90e0ef;
+    border: 2px solid black;
+    padding: 5%;
+    margin: 2%;
+    
+}
+label{
+    padding-top: 3px;
+}
+select{
+    background-color: #0077B6;
+    color:#CAF0F8;
+}
+
+input[type=text]{
+    border-radius: 5px;
+    width: 40%;
+}
+input[type=text]::placeholder{
+    text-align: center;
+}
+input[type=text]:focus{
+    background-color: thistle;
+}
+select{
+    font-size: small;
+    padding: 3px;
+}
+button[type="submit"]{
+    background-color:#0077B6;
+    color:#CAF0F8;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: small;
+}
+button[type="button"]{
+    margin: 1px;
+    background-color:#0077B6;
+    color:#CAF0F8;
+}
+button{
+    transition: all 4s;
+}
+button:hover{
+    transform: scale(1.1);
+    background-color:rgb(0, 119, 182,0.8);
+}
+table{
+    background-color: whitesmoke;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
